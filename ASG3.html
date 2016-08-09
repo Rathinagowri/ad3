@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+      <meta charset="utf-8">
+      <title>AngularJS Isolate Scope</title>
+ 
+    </head>
+    <body>
+<p> One Way binding </p>
+<div ng-app="mainApp">
+        <client-name name="Ram"></client-name>
+ </div>
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+      <script>
+var app = angular.module('mainApp', []);
+ 
+app.directive("clientName", function() {
+    return {
+        
+        scope:{},
+        template: '<h3> Client Name : {{name}} </h3>',
+        link: function(scope,n,a){
+            scope.name = a.name;
+       
+        }
+    };
+});
+</script>
+</body>
+</html>
